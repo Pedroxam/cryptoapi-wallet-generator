@@ -5,7 +5,7 @@
 <title>Cryptapi Wallet Generator</title>
 <link rel='stylesheet' href='./bootstrap.min.css'>
 <script src="./jquery.min.js"></script>
-<style>#result, #waiting{display: none}</style>
+<style>#result, #waiting, #result_c, #waiting_c{display: none}</style>
 </head>
 <body class="my-3" style="background:#EEE;">
 <div class="container">
@@ -46,6 +46,60 @@
 
 <hr/>
 
+<div class="card">
+	<div class="card-body">
+		<h3 class="text-center mb-4">Check Your Callback</h3>
+		<div class="row">
+			
+			<div class="col-md-6">
+				<label class="mt-3">Callback URL</label>
+				<input type="url" id="callback_c" class="form-control" placeholder="http://">
+			</div>
+			
+			<div class="col-md-6">
+				<label>Coin</label>
+				<select id="coin_c" class="form-control">
+					<option value="btc">BTC</option>
+					<option value="eth">ETH</option>
+					<option value="bch">BCH</option>
+					<option value="ltc">LTC</option>
+					<option value="usdt">USDT</option>
+				</select>
+			</div>
+			
+			<div class="col-md-6">
+				<label class="mt-3">Amount</label>
+				<input type="number" id="amount" class="form-control" placeholder="0.0200">
+			</div>
+			
+			<div class="col-md-6">
+				<label class="mt-3">Txid</label>
+				<input type="text" id="txid_in" class="form-control" placeholder="....">
+			</div>
+			
+			<div class="col-md-6">
+				<label class="mt-3">Confirmations</label>
+				<input type="number" id="confirmations" class="form-control" placeholder="1">
+			</div>
+			
+			<div class="col-md-12 text-center">
+				<button id="callback_check" class="btn btn-danger mt-4">Send Request to Callback</button>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<hr/>
+
+<div class="card" id="result_c">
+	<div class="card-body">
+		<h3 class="text-center mb-4">Result</h3>
+		<div class="text-center" id="waiting_c">Please Wait</div>
+		<div id="response_c"></div>
+	</div>
+</div>
+
 <div class="card" id="result">
 	<div class="card-body">
 		<h3 class="text-center mb-4">Result</h3>
@@ -53,6 +107,7 @@
 		<div id="response"></div>
 	</div>
 </div>
+
 </div><!-- container -->
 <script src="./bootstrap.min.js"></script>
 <script src="./app.js"></script>
