@@ -32,24 +32,30 @@
 				API = `https://api.cryptapi.io/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1&email=${email}`;
 			
 			$('#waiting').show();
-				
+			
 			$.ajax({
-				type:'GET',
-				url: API
-			})
-			.done(function(data){
-				$('#waiting').hide();
-				$('#result').show();
-				
-				if(data.status === 'error'){
-					$('#response').html(data.error);
+				url: API,
+				method: "GET",
+				dataType: 'json',
+				success: function (data) {
+					$('#waiting').hide();
+					$('#result').show();
+					
+					if(data.status === 'error'){
+						$('#response').html(data.error);
+					}
+					else {
+						$('#response').html("New address for deposit : " + data.address_in);
+					}
+				},
+				error: function (e) {
+					$('#response').html("ERROR: " + e);
 				}
-				else {
-					$('#response').html("New address for deposit : " + data.address_in);
-				}
+			});
 				
+			setTimeout(() => {
 				$(that).removeClass('disabled');
-			})
+			}, 2000);
 		})
 		
 		/**
