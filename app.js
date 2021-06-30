@@ -32,6 +32,8 @@
 				API = `https://api.cryptapi.io/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1&email=${email}`;
 			
 			$('#waiting').show();
+			$('#url_result').hide();
+			$('#u_r').html("");
 			
 			$.ajax({
 				url: API,
@@ -52,7 +54,10 @@
 					$('#response').html("ERROR: " + e);
 				}
 			});
-				
+			
+			$('#url_result').show();
+			$('#u_r').html(API);
+
 			setTimeout(() => {
 				$(that).removeClass('disabled');
 			}, 2000);
