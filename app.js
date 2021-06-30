@@ -4,7 +4,7 @@
 */
 	$(document).ready(function(){
 		/**
-		* Generate Code
+		* Generate Wallet
 		*/
 		$('#generate').click(function(){
 			
@@ -40,7 +40,14 @@
 			.done(function(data){
 				$('#waiting').hide();
 				$('#result').show();
-				$('#response').html("New address for deposit : " + data.address_in);
+				
+				if(data.status === 'error'){
+					$('#response').html(data.error);
+				}
+				else {
+					$('#response').html("New address for deposit : " + data.address_in);
+				}
+				
 				$(that).removeClass('disabled');
 			})
 		})
