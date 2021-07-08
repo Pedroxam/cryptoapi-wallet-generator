@@ -87,7 +87,7 @@
 			var txid_in = $('#txid_in').val();
 			var confirmations = $('#confirmations').val();
 			
-			let callbackURL = `${callback}?value_coin={$amount}&coin={$coin}&txid_in={$txid_in}&confirmations=${confirmations}`;
+			let callbackURL = `${callback}?value_coin=${amount}&coin=${coin}&txid_in=${txid_in}&confirmations=${confirmations}`;
 			
 			var that = this;
 			
