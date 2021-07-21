@@ -60,7 +60,10 @@
 					}
 				},
 				error: function (e) {
-					$('#response').html("ERROR: " + e);
+					$('#response').html("");
+					e.forEach((a, i) => {
+						$('#response').append("ERROR: " + a + "\n");
+					});
 				}
 			});
 			
