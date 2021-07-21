@@ -31,6 +31,14 @@
 			if(email !== "")
 				API = `https://api.cryptapi.io/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1&email=${email}`;
 			
+			if(coin === 'doge' || coin === 'ada' || coin === 'xrp' || coin === 'bnb'){
+				API = `https://api.cryptapi.io/bep20/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1`;
+			}
+			
+			if(coin === 'usdt'){
+				API = `https://api.cryptapi.io/erc20/${coin}/create/?callback=${myCallBack}&address=${myAddress}&pending=1`;
+			}
+			
 			$('#waiting').show();
 			$('#url_result').hide();
 			$('#u_r').html("");
