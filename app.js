@@ -42,6 +42,7 @@
 			$('#waiting').show();
 			$('#url_result').hide();
 			$('#u_r').html("");
+			$('#result').show();
 			
 			$.ajax({
 				url: API,
