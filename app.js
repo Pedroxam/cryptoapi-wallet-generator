@@ -61,11 +61,7 @@
 				},
 				error: function (e) {
 					$('#waiting').hide();
-					$('#response').html("");
-					console.log(e)
-					e.forEach((a, i) => {
-						$('#response').append("ERROR: " + a + "\n");
-					});
+					$('#response').html("ERROR: " + e.responseJSON.error + "\n");
 				}
 			});
 			
