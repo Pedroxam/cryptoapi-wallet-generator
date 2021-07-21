@@ -65,7 +65,7 @@
 			});
 			
 			$('#url_result').show();
-			$('#u_r').html("URL Generated: ", API);
+			$('#u_r').html("URL Generated: " + API);
 
 			setTimeout(() => {
 				$(that).removeClass('disabled');
